@@ -1,0 +1,10 @@
+{
+  "Things": {
+    "appName": "App",
+    "test": "test"
+  },
+  "App": {
+    "appName": "App",
+    "test": "test"
+  }
+}

@@ -1,0 +1,33 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'adduser' ]
+2 info using npm@5.6.0
+3 info using node@v6.9.1
+4 verbose npm-session ebb7826ade515930
+5 warn Email must be an email address
+6 verbose login before first PUT { _id: 'org.couchdb.user:mnk5490',
+6 verbose login   name: 'mnk5490',
+6 verbose login   password: 'XXXXX',
+6 verbose login   type: 'user',
+6 verbose login   roles: [],
+6 verbose login   date: '2018-01-24T19:02:50.194Z' }
+7 http request → PUT https://registry.npmjs.org/-/user/org.couchdb.user:mnk5490
+8 http 401 ← Unauthorized (https://registry.npmjs.org/-/user/org.couchdb.user:mnk5490)
+9 verbose adduser before first PUT { _id: 'org.couchdb.user:mnk5490',
+9 verbose adduser   name: 'mnk5490',
+9 verbose adduser   password: 'XXXXX',
+9 verbose adduser   email: 'test@gmail.com',
+9 verbose adduser   type: 'user',
+9 verbose adduser   roles: [],
+9 verbose adduser   date: '2018-01-24T19:02:52.369Z' }
+10 http request → PUT https://registry.npmjs.org/-/user/org.couchdb.user:mnk5490
+11 http 401 ← Unauthorized (https://registry.npmjs.org/-/user/org.couchdb.user:mnk5490)
+12 verbose stack Error: Unable to authenticate, need: Basic
+13 verbose statusCode 401
+14 verbose cwd /Users/maxwellkendall/Desktop/Development/Node/Generators/generator-mnk-5490-node-react
+15 verbose Darwin 16.7.0
+16 verbose argv "/usr/local/bin/node" "/usr/local/bin/npm" "adduser"
+17 verbose node v6.9.1
+18 verbose npm  v5.6.0
+19 error code EAUTHIP
+20 error Unable to authenticate, need: Basic
+21 verbose exit [ 1, true ]
