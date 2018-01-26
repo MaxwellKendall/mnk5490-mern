@@ -1,10 +1,6 @@
 {
-  "Things": {
-    "appName": "App",
-    "test": "test"
-  },
-  "App": {
-    "appName": "App",
+  "generator-mnk5490-mern": {
+    "appName": "wooFREAKINGhoo",
     "test": "test"
   }
 }
