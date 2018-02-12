@@ -14,6 +14,7 @@ module.exports = {
   },
   "rules": {
     "no-underscore-dangle": "off",
+    "comma-dangle": "off",
     "max-len": ["error", 120, 2, {
       "ignoreComments": true,
       "ignoreTrailingComments": true

@@ -2,5 +2,21 @@
   "generator-mnk5490-mern": {
     "appName": "wooFREAKINGhoo",
     "test": "test"
+  },
+  "generator-mern-2k18": {
+    "appName": "sparcPong",
+    "test": "test"
+  },
+  "@mnk5490/generator-mern": {
+    "appName": "test",
+    "test": "test"
+  },
+  "generator-mern-test": {
+    "appName": "test123",
+    "test": "test"
+  },
+  "generator-max": {
+    "appName": "App",
+    "test": "test"
   }
 }

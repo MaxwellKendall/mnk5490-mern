@@ -20,7 +20,7 @@ module.exports = class extends Generator {
   writing() {
     this.fs.copyTpl(
       this.templatePath('_Container.jsx'),
-      this.destinationPath(`${this.appName}/public/src/containers/${this.options.component}Container.js`),
+      this.destinationPath(`${this.appName}/frontEnd/src/containers/${this.options.component}Container.js`),
       {
         component: this.options.component
       });

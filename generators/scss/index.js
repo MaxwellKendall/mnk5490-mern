@@ -12,7 +12,7 @@ module.exports = class extends Generator {
   writing() {
     this.fs.copy(
       this.templatePath('_global.scss'),
-      this.destinationPath(`${this.appName}/public/src/scss/global.scss`)
+      this.destinationPath(`${this.appName}/frontEnd/src/scss/global.scss`)
     );
   }
 };

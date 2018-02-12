@@ -4,21 +4,16 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 
 module.exports = class extends Generator {
-
   constructor(args, options) {
+    super(args, options);
+    this.appName = this.config.get('appName');
+    this.option('name', {
+      desc: 'Use this name for component generator',
+      type: String,
+      defaults: "Component"
+    });
 
-  super(args, options);
-
-  // Make options available
-
-
-  this.option('name', {
-    desc: 'Use this name for component generator',
-    type: String,
-    defaults: "Component"
-  });
-
-  this.option('path', {
+    this.option('path', {
       desc: 'path for component begining with src/components',
       type: String,
       defaults: 'src/components'

@@ -6,7 +6,8 @@ const yosay = require('yosay');
 module.exports = class extends Generator {
   constructor(args, options) {
     super(args, options);
-    // Make options available
+    this.appName = null;
+
     this.option('skip-welcome-message', {
       desc: 'Skip the welcome message',
       type: Boolean,
@@ -17,8 +18,7 @@ module.exports = class extends Generator {
   }
 
   prompting() {
-    // Have Yeoman greet the user.
-    this.log(yosay(`Welcome to this private generator for generating a ${chalk.red('MERN')} app`));
+    this.log(yosay(`Welcome to this private generator for generating a ${chalk.red('React')} app`));
 
     const prompts = [
       {
@@ -26,6 +26,13 @@ module.exports = class extends Generator {
         name: 'name',
         message: 'What would you like to name your app ?',
         default: 'App',
+      },
+      {
+        type: 'input',
+        fullstack: 'bool',
+        name: 'fullstack',
+        message: 'Do you want to generate a full stack app with express as the back end?',
+        default: true,
       },
     ];
 
@@ -42,128 +49,128 @@ module.exports = class extends Generator {
     // 1. Generate front end
 
     this.fs.copyTpl(
-      this.templatePath('./public/gitignore'),
-      this.destinationPath(`${appName}/public/.gitignore`)
+      this.templatePath('./frontEnd/gitignore'),
+      this.destinationPath(`${appName}/frontEnd/.gitignore`)
     );
 
     this.fs.copyTpl(
-      this.templatePath('./public/_package.json'),
-      this.destinationPath(`${appName}/public/package.json`),
+      this.templatePath('./frontEnd/_package.json'),
+      this.destinationPath(`${appName}/frontEnd/package.json`),
       {
         name: this.props.name,
       }
     );
 
     this.fs.copyTpl(
-      this.templatePath('./public/_bower.json'),
-      this.destinationPath(`${appName}/public/bower.json`),
+      this.templatePath('./frontEnd/_bower.json'),
+      this.destinationPath(`${appName}/frontEnd/bower.json`),
       {
         name: this.props.name,
       }
     );
     this.fs.copy(
-      this.templatePath('./public/babelrc'),
-      this.destinationPath(`${appName}/public/.babelrc`)
+      this.templatePath('./frontEnd/babelrc'),
+      this.destinationPath(`${appName}/frontEnd/.babelrc`)
     );
     this.fs.copy(
-      this.templatePath('./public/bowerrc'),
-      this.destinationPath(`${appName}/public/.bowerrc`)
-    );
-
-    this.fs.copy(
-      this.templatePath('./public/_webpack.config.js'),
-      this.destinationPath(`${appName}/public/webpack.config.js`)
+      this.templatePath('./frontEnd/bowerrc'),
+      this.destinationPath(`${appName}/frontEnd/.bowerrc`)
     );
 
     this.fs.copy(
-      this.templatePath('./public/_postcss.config.js'),
-      this.destinationPath(`${appName}/public/postcss.config.js`)
+      this.templatePath('./frontEnd/_webpack.config.js'),
+      this.destinationPath(`${appName}/frontEnd/webpack.config.js`)
     );
 
     this.fs.copy(
-      this.templatePath('./public/_eslintrc.js'),
-      this.destinationPath(`${appName}/public/.eslintrc.js`)
+      this.templatePath('./frontEnd/_postcss.config.js'),
+      this.destinationPath(`${appName}/frontEnd/postcss.config.js`)
     );
 
     this.fs.copy(
-      this.templatePath('./public/_stylelintrc'),
-      this.destinationPath(`${appName}/public/.stylelintrc`)
+      this.templatePath('./frontEnd/_eslintrc.js'),
+      this.destinationPath(`${appName}/frontEnd/.eslintrc.js`)
     );
 
     this.fs.copy(
-      this.templatePath('./public/_index.html'),
-      this.destinationPath(`${appName}/public/index.html`)
+      this.templatePath('./frontEnd/_stylelintrc'),
+      this.destinationPath(`${appName}/frontEnd/.stylelintrc`)
     );
 
     this.fs.copy(
-      this.templatePath('./public/src/_history/_configureHistory.js'),
-      this.destinationPath(`${appName}/public/src/history/configureHistory.js`)
+      this.templatePath('./frontEnd/_index.html'),
+      this.destinationPath(`${appName}/frontEnd/index.html`)
     );
 
     this.fs.copy(
-      this.templatePath('./public/_index.js'),
-      this.destinationPath(`${appName}/public/src/index.js`)
+      this.templatePath('./frontEnd/src/_history/_configureHistory.js'),
+      this.destinationPath(`${appName}/frontEnd/src/history/configureHistory.js`)
     );
 
     this.fs.copy(
-      this.templatePath('./public/src/_store/_configureStore.js'),
-      this.destinationPath(`${appName}/public/src/store/configureStore.js`)
+      this.templatePath('./frontEnd/_index.js'),
+      this.destinationPath(`${appName}/frontEnd/src/index.js`)
     );
 
     this.fs.copy(
-      this.templatePath('./public/src/_App.jsx'),
-      this.destinationPath(`${appName}/public/src/components/App.jsx`)
+      this.templatePath('./frontEnd/src/_store/_configureStore.js'),
+      this.destinationPath(`${appName}/frontEnd/src/store/configureStore.js`)
     );
 
     this.fs.copy(
-      this.templatePath('./public/src/_reducers/_index.js'),
-      this.destinationPath(`${appName}/public/src/reducers/index.js`)
+      this.templatePath('./frontEnd/src/_App.jsx'),
+      this.destinationPath(`${appName}/frontEnd/src/components/App.jsx`)
+    );
+
+    this.fs.copy(
+      this.templatePath('./frontEnd/src/_reducers/_index.js'),
+      this.destinationPath(`${appName}/frontEnd/src/reducers/index.js`)
     );
 
     this.fs.copyTpl(
-      this.templatePath('./public/_testSetUp.js'),
-      this.destinationPath(`${appName}/public/testSetUp.js`)
+      this.templatePath('./frontEnd/_testSetUp.js'),
+      this.destinationPath(`${appName}/frontEnd/testSetUp.js`)
     );
 
     this.fs.copyTpl(
-      this.templatePath('./public/tests/components/App.spec.js'),
-      this.destinationPath(`${appName}/public/tests/components/App.spec.js`)
+      this.templatePath('./frontEnd/tests/components/App.spec.js'),
+      this.destinationPath(`${appName}/frontEnd/tests/components/App.spec.js`)
     );
 
     // 2. Generate back end
     this.fs.copy(
       this.templatePath('./auth/_index.js'),
-      this.destinationPath(`${appName}/auth/index.js`)
+      this.destinationPath(`${appName}/backEnd/auth/index.js`)
     );
 
     this.fs.copy(
       this.templatePath('./config/_index.js'),
-      this.destinationPath(`${appName}/config/index.js`)
+      this.destinationPath(`${appName}/backEnd/config/index.js`)
     );
 
     this.fs.copy(
       this.templatePath('./controllers/_index.js'),
-      this.destinationPath(`${appName}/controllers/index.js`)
+      this.destinationPath(`${appName}/backEnd/controllers/index.js`)
     );
 
     this.fs.copy(
       this.templatePath('./models/_index.js'),
-      this.destinationPath(`${appName}/auth/index.js`)
+      this.destinationPath(`${appName}/backEnd/models/index.js`)
     );
 
     this.fs.copy(
       this.templatePath('./_server.js'),
-      this.destinationPath(`${appName}/server.js`)
+      this.destinationPath(`${appName}/backEnd/server.js`)
     );
 
     this.fs.copy(
       this.templatePath('./gitignore'),
-      this.destinationPath(`${appName}/.gitignore`)
+      this.destinationPath(`${appName}/backEnd/.gitignore`)
     );
 
     this.fs.copyTpl(
       this.templatePath('./_package.json'),
-      this.destinationPath(`${appName}/package.json`),
+      this.destinationPath(`${appName}/backEnd/package.json`),
       {
         name: this.props.name,
       }
@@ -172,16 +179,20 @@ module.exports = class extends Generator {
 
   initializing() {
     if (!this.options['skip-welcome-message']) {
-      this.log(`Your project ${this.appName} will be bundled under /${this.appName} and contain a react/redux front end bundled under /public and a basic file tree structure for an Express Backend`);
+      this.log(`React bundled under /frontEnd and a basic file structure for an 
+      Express Backend bundled under /backend`);
     }
   }
 
   install() {
-    this.composeWith('mnk5490-mern:scss');
-    this.composeWith('mnk5490-mern:container');
+    this.composeWith('mern:scss');
+    this.composeWith('mern:container');
+    this.composeWith('mern:action');
+    this.composeWith('mern:reducer');
+    this.composeWith('mern:test');
     process.chdir(`${this.props.name}`);
     this.installDependencies({ npm: false, bower: false, yarn: true });
-    process.chdir('public');
+    process.chdir('frontEnd');
     this.installDependencies({ npm: false, bower: false, yarn: true });
   }
 };
